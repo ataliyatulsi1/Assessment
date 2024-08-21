@@ -1,18 +1,42 @@
 ASSESSMENT 1
 
 1) Import pandas and read in the banklist.csv file into a dataframe called banks.
+Code:- 
 import pandas as pd
 data =pd.read_csv('banklist.csv')
 print(data)
 
 2) Show the head of the dataframe.
+Code:-  
 import pandas as pd
 data =pd.read_csv('banklist.csv')
 print(data.head())
 
 3) What are the column names?
+Code:- 
 import pandas as pd
 data =pd.read_csv('banklist.csv')
 print(data.columns)
 
 4) How many States (ST) are represented in this data set?
+Code:- 
+import pandas as pd
+banks = pd.read_csv("banklist.csv")
+print(banks["ST"].nunique())
+
+5) Get a list or array of all the states in the data set.
+Code:-
+import pandas as pd
+banks = pd.read_csv("banklist.csv")
+data = banks["ST"].unique()
+print(data)
+
+6) What are the top 5 states with the most failed banks?
+Code:-
+import pandas as pd
+failed_banks_count = banks.groupby('ST').size()
+sorted_faile = failed_banks_count.sort_values(ascending=False)
+top_5_states = sorted_failed_banks.head(5)
+print(top_5_states)
+
+
